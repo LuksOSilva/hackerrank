@@ -1,0 +1,11 @@
+SELECT
+	MIN(city),
+	LENGTH(city)
+FROM
+	station
+WHERE
+    LENGTH(city) = (SELECT MAX(LENGTH(city)) FROM STATION)
+    OR
+    LENGTH(city) = (SELECT MIN(LENGTH(city)) FROM STATION)
+GROUP BY
+	LENGTH(city)
